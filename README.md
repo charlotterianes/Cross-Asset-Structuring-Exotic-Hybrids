@@ -152,7 +152,7 @@ explain = pnl_explain(
 
 **Why Asia weighting.** Asian bank desks see disproportionate flow in DCIs (FX-linked deposits to PB clients), FCNs and autocallables (yield-enhancement on regional indices and single names), and TARFs (corporate FX hedging). Standard textbooks weight toward Western equity exotics: cliquets, lookbacks, Bermudans on US single names. The product mix here reflects what actually trades in Singapore and Hong Kong.
 
-**Why SVI not just SABR.** SVI has a cleaner arbitrage-free parametrisation for equity skews where the smile is asymmetric and fat-tailed. SABR remains the right tool for FX and rates where ATM implied vol moves with the forward (the so-called "sticky delta" behaviour SABR captures naturally). Both are included so the right tool is available per asset class.
+**Why SVI (Stochastic Volatility Inspired) not just SABR (Stochastic Alpha, Beta, Rho).** SVI has a cleaner arbitrage-free parametrisation for equity skews where the smile is asymmetric and fat-tailed. SABR remains the right tool for FX and rates where ATM implied vol moves with the forward (the so-called "sticky delta" behaviour SABR captures naturally). Both are included so the right tool is available per asset class.
 
 **Why bump-and-reval.** Production books often use AAD or pathwise differentiation for performance, but bump-and-reval is the universal fallback that works on any pricer regardless of internal structure. The wrapper here is generic enough to handle any product in this repo.
 

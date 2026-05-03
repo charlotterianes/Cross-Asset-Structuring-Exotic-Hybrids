@@ -1,6 +1,6 @@
 # Cross-Asset Structuring & Exotic Hybrids
 
-A working repository implementing pricing, risk, and idea-generation tools for the structured products typically traded on Asian bank desks: DCI, FCN, autocallables, TARFs, range accruals, and rates/FX hybrids.
+A working repository implementing pricing, risk, and idea-generation tools for the structured products typically traded on Asian bank desks: DCI (Dual Currency Investments), FCN (Fixed Coupon Notes), autocallables, TARFs (Target Redemption Forwards), range accruals, and rates/FX hybrids.
 
 The aim is not to re-implement Black-Scholes for the hundredth time, but to build a coherent toolkit that mirrors how a structuring desk actually works: market-data layer, vol surfaces, vanillas, exotics, hybrids, risk attribution. Asia/FX product weighting is deliberate.
 
@@ -13,7 +13,7 @@ A practitioner-oriented companion to Bouzoubaa & Osseiran's *Exotic Options and 
 - [x] Black-Scholes, Garman-Kohlhagen, Black-76 with full Greeks (delta, gamma, vega, theta, rho, vanna, volga)
 - [x] Implied vol solver (Brent)
 - [x] Raw SVI fit with butterfly arbitrage check
-- [x] SABR fit (Hagan lognormal approximation)
+- [x] SABR (Stochastic Alpha, Beta, Rho) fit (Hagan lognormal approximation)
 - [x] Dupire local vol from parameterised IV surface
 - [x] Crank-Nicolson PDE solver for European vanilla (sanity-check vs analytical)
 - [x] GBM path generator with antithetic variates
@@ -24,20 +24,20 @@ A practitioner-oriented companion to Bouzoubaa & Osseiran's *Exotic Options and 
 - [x] Worst-of Phoenix Autocallable with continuous KI monitoring
 - [x] Target Redemption Forward with leveraged loss leg and cumulative-profit KO
 - [x] Range Accrual
-- [x] Daily share Accumulator with KO
+- [x] Daily share Accumulator with KO (Knock Out) 
 - [x] Quanto and composite options
-- [x] Simplified 3-factor PRDC (Hull-White × Hull-White × log-normal FX)
+- [x] Simplified 3-factor PRDC (Power Reverse Dual-Currency Note) (Hull-White × Hull-White × log-normal FX)
 - [x] P&L explain decomposition (Greek attribution + unexplained residual)
 - [x] Scenario ladder generator (spot × vol grid)
 - [x] Generic bump-and-reval Greek wrapper
 
 **On the roadmap:**
 
-- [ ] Curve bootstrapping from real SOR/SORA/USD-OIS deposit and swap quotes
+- [ ] Curve bootstrapping from real SOR/SORA (Singapore Overnight Rate Average)/USD-OIS deposit and swap quotes
 - [ ] Heston stochastic vol calibration
 - [ ] Variance and volatility swap pricing
 - [ ] Cliquet structures
-- [ ] Snowball / KIKO accumulator variants
+- [ ] Snowball / KIKO (Knock-In, Knock-Out) accumulator variants
 - [ ] Longstaff-Schwartz for Bermudan exercise
 - [ ] FX vol surface in delta-strike convention with smile interpolation
 - [ ] VBA companion module (UDF wrappers + EOD batch pricing)
@@ -84,7 +84,7 @@ For each product, term sheet conventions and risk discussion are in `docs/produc
 
 ## Example usage
 
-### Pricing a DCI
+### Pricing a DCI (Dual Currency Investment) 
 
 ```python
 from cas_toolkit import DCI
